@@ -80,7 +80,7 @@ const Signup = () => {
                             value={input.fullname}
                             name="fullname"
                             onChange={changeEventHandler}
-                            placeholder="abdul"
+                            placeholder="Abdul Muid"
                         />
                     </div>
                     <div className='my-2'>
@@ -110,7 +110,7 @@ const Signup = () => {
                             value={input.password}
                             name="password"
                             onChange={changeEventHandler}
-                            placeholder="abdul@gmail.com"
+                            placeholder="ajkf@#$kldjg!^&kjdaf"
                         />
                     </div>
                     <div className='flex items-center justify-between'>
