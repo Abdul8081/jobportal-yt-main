@@ -81,6 +81,7 @@ const Signup = () => {
                             name="fullname"
                             onChange={changeEventHandler}
                             placeholder="Abdul Muid"
+                            required
                         />
                     </div>
                     <div className='my-2'>
@@ -91,6 +92,7 @@ const Signup = () => {
                             name="email"
                             onChange={changeEventHandler}
                             placeholder="abdul@gmail.com"
+                            required
                         />
                     </div>
                     <div className='my-2'>
@@ -101,6 +103,7 @@ const Signup = () => {
                             name="phoneNumber"
                             onChange={changeEventHandler}
                             placeholder="8080808080"
+                            required
                         />
                     </div>
                     <div className='my-2'>
@@ -111,6 +114,7 @@ const Signup = () => {
                             name="password"
                             onChange={changeEventHandler}
                             placeholder="ajkf@#$kldjg!^&kjdaf"
+                            required
                         />
                     </div>
                     <div className='flex items-center justify-between'>
@@ -145,6 +149,7 @@ const Signup = () => {
                                 type="file"
                                 onChange={changeFileHandler}
                                 className="cursor-pointer"
+                                required
                             />
                         </div>
                     </div>

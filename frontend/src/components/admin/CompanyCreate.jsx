@@ -47,6 +47,8 @@ const CompanyCreate = () => {
                     className="my-2"
                     placeholder="JobHunt, Microsoft etc."
                     onChange={(e) => setCompanyName(e.target.value)}
+                    required
+                    
                 />
                 <div className='flex items-center gap-2 my-10'>
                     <Button variant="outline" onClick={() => navigate("/admin/companies")}>Cancel</Button>
