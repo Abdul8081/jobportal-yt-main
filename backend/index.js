@@ -39,18 +39,23 @@ const corsOptions = {
 
 app.use(cors(corsOptions));
 
-// static serving (SPA)
-const _dirname = path.resolve();
-app.use(express.static(path.join(_dirname, "/frontend/dist")));
-app.get("*", (_, res) => {
-  res.sendFile(path.resolve(_dirname, "frontend", "dist", "index.html"));
-});
-
-// API routes (register after cors middleware)
+// ✅ API routes FIRST (before static serving)
 app.use("/api/v1/user", userRoute);
 app.use("/api/v1/company", companyRoute);
 app.use("/api/v1/job", jobRoute);
 app.use("/api/v1/application", applicationRoute);
+
+// ✅ Static serving LAST (SPA fallback) - Only in production
+if (process.env.NODE_ENV === "production") {
+  const __dirname = path.resolve();
+  const frontendDistPath = path.join(__dirname, "../frontend/dist");
+  
+  app.use(express.static(frontendDistPath));
+  
+  app.get("*", (req, res) => {
+    res.sendFile(path.join(frontendDistPath, "index.html"));
+  });
+}
 
 // sanity check for DB URI (fail fast with a helpful message)
 if (!process.env.MONGO_URI) {
